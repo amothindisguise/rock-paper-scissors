@@ -22,3 +22,8 @@
 //if === draw
 //else proceed to checking
 //else ask to input a valid answer
+
+function humanChoice(str) {
+    str = prompt("Please choose between rock, paper, and scissors");
+    alert(str);
+}

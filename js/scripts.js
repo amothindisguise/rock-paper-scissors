@@ -35,24 +35,19 @@ function playGame() {
             humanChoice = alert("Invalid input! Please choose between ROCK, PAPER, and SCISSORS.");
             playRound();
         } else if(humanChoice === computerChoice) {
-            alert("Round " + rounds + "\nDraw! You both chose " + humanChoice );
-            alert("Your score: " + humanScore + "\nComputer's score: " + computerScore);
+            alert("Round " + rounds + "\nDraw! You both chose " + humanChoice + "\nYour score: " + humanScore + "\nComputer's score: " + computerScore);
         } else if (humanChoice === "ROCK" && computerChoice === "SCISSORS") {
-            alert("Round " + rounds + "\nYou win! Your " + humanChoice + " beats Computer's " + computerChoice + ".");
             humanScore++;
-            alert("Your score: " + humanScore + "\nComputer's score: " + computerScore);
+            alert("Round " + rounds + "\nYou win! Your " + humanChoice + " beats Computer's " + computerChoice + ".\n" + "Your score: " + humanScore + "\nComputer's score: " + computerScore);
         } else if (humanChoice === "PAPER" && computerChoice === "ROCK") {
-            alert("Round " + rounds + "\nYou win! Your " + humanChoice + " beats Computer's " + computerChoice + ".");
             humanScore++;
-            alert("Your score: " + humanScore + "\nComputer's score: " + computerScore);
+            alert("Round " + rounds + "\nYou win! Your " + humanChoice + " beats Computer's " + computerChoice + ".\n" + "Your score: " + humanScore + "\nComputer's score: " + computerScore);
         } else if(humanChoice === "SCISSORS" && computerChoice === "PAPER") {
-            alert("Round " + rounds + "\nYou win! Your " + humanChoice + " beats Computer's " + computerChoice + ".");
             humanScore++;
-            alert("Round " + rounds + "\nYour score: " + humanScore + "\nComputer's score: " + computerScore);
+            alert("Round " + rounds + "\nYou win! Your " + humanChoice + " beats Computer's " + computerChoice + ".\n" + "Your score: " + humanScore + "\nComputer's score: " + computerScore);
         } else {
-            alert("Round " + rounds + "\nYou lose! Computer's " + computerChoice + " beat your " + humanChoice + ".");
             computerScore++;
-            alert("Your score: " + humanScore + "\nComputer's score: " + computerScore);
+            alert("Round " + rounds + "\nYou lose! Computer's " + computerChoice + " beat your " + humanChoice + ".\n" + "Your score: " + humanScore + "\nComputer's score: " + computerScore);
         }
     }
 

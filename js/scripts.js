@@ -1,3 +1,5 @@
+//Computer randomly chooses between rock, paper, and scissors using Math.random().
+//The generated number will be multiplied by 3 and round down using Math.floor()
 function getComputerChoice(choice) {
     choice = Math.floor(Math.random() * 3);
     if (choice == 0) {
@@ -9,11 +11,17 @@ function getComputerChoice(choice) {
     }
 }
 
+//Human choice if not cancelled, returns coverted to upper case input and trimmed whitespaces
 function getHumanChoice(choice) {
     choice = prompt("Please choose between rock, paper, and scissors.");
-    return choice.toUpperCase();
+    
+    //Only triggers when the cancel button is clicked
+    if(choice == null) {
+        throw alert("Game is cancelled.");
+    } else return choice.toUpperCase().trim();
 }
 
+//Called when the button Start Game is clicked
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
@@ -23,7 +31,10 @@ function playGame() {
         humanChoice = getHumanChoice();
         computerChoice = getComputerChoice();
     
-        if(humanChoice === computerChoice) {
+        if(humanChoice != "ROCK" && humanChoice != "PAPER" && humanChoice != "SCISSORS") {
+            humanChoice = alert("Invalid input! Please choose between ROCK, PAPER, and SCISSORS.");
+            playRound();
+        } else if(humanChoice === computerChoice) {
             alert("Round " + rounds + "\nDraw! You both chose " + humanChoice );
             alert("Your score: " + humanScore + "\nComputer's score: " + computerScore);
         } else if (humanChoice === "ROCK" && computerChoice === "SCISSORS") {
@@ -45,13 +56,15 @@ function playGame() {
         }
     }
 
+    //5 rounds
     for (rounds = 1; rounds <= 5; rounds++) {
         playRound();
     }
 
+    //Summary of scores
     if (humanScore == computerScore) {
         alert("It's a DRAW! Your score: " + humanScore + "," + " Computer's score: " + computerScore + ".");
     } else if (humanScore > computerScore) {
-        alert("You WIN the game! Your score is " + humanScore + "while Computer's score is " + computerScore + ".");
+        alert("You WIN the game! Your score is " + humanScore + " while Computer's score is " + computerScore + ".");
     } else alert("You LOSE! Computer's score " + computerScore + " beat your score " + humanScore + ".");
 }
